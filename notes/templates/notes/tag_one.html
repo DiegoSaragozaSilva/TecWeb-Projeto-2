@@ -1,0 +1,20 @@
+{% extends "notes/base.html" %}
+{% load static %}
+
+{% block content %}
+<main class="container">
+    <div class="card-container">
+        {% for note in selected_notes %}
+        <div class="card">
+          <h3 class="card-title">{{ note.title }}</h3>
+          <h3 class="card-title">{{ note.tag }}</h3>
+          <div class="card-content">
+              <p>{{ note.content }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+  </main>
+  
+  <script type="text/javascript" src="{% static 'notes/scripts/getit.js' %}"></script>
+  {% endblock %}

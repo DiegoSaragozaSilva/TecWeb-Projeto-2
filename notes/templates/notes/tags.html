@@ -1,0 +1,20 @@
+{% extends "notes/base.html" %}
+{% load static %}
+
+{% block content %}
+<main class="container">
+  <div class="card-container">
+    {% for tag in tags %}
+    <div class="card" onclick="sendInformations(this)">
+      <h3 class="tag-name">{{ tag.name }}</h3>
+      <form method="POST" style="display: hidden;">
+        {% csrf_token %}
+        <input type = "hidden" name = "tag_name" class = "org" value = ""/>
+      </form>
+    </div>
+    {% endfor %}
+  </div>
+</main>
+
+<script type="text/javascript" src="{% static 'notes/scripts/getit.js' %}"></script>
+{% endblock %}
